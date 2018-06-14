@@ -7,11 +7,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StartGui extends JFrame {
+public class SettingsGui extends JFrame {
 
     JFrame mainFrame;
 
-    public StartGui() {
+    public SettingsGui() {
         final JRadioButton bronzeButton = new JRadioButton("Bronze");
         JRadioButton ironButton = new JRadioButton("Iron");
         JButton startButton = new JButton("Start");

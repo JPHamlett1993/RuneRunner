@@ -5,7 +5,7 @@ import org.powerbot.script.Tile;
 
 public class Constants {
 
-    static final int[][] path = {
+    static final int[][] PATH = {
             {3284, 3363},
             {3289, 3372},
             {3292, 3378},
@@ -22,44 +22,24 @@ public class Constants {
             {3254, 3420}
     };
 
-    static final Tile[] tilePath = Tile.fromArray(path);
+    public static final Tile[] TILE_PATH = Tile.fromArray(PATH);
 
-    static Tile bankTile = new Tile(3254, 3421, 0);
+    public static Tile BANK_TILE = new Tile(3254, 3421, 0);
 
-    static Tile mineTile = new Tile(3284, 3363, 0);
+    public static Tile MINE_TILE = new Tile(3284, 3363, 0);
 
-    static int[] copperIds = {7484, 7453};
-    static int[] tinIds = {7486, 7485};
-    static int copperInvId = 436;
-    static int tinInvId  = 438;
+    public static int[] COPPER_IDS = {7484, 7453};
+    public static int[] TIN_IDS = {7486, 7485};
+    public static int[] IRON_IDS = {7488, 7455};
+    public static int COPPER_INV_IDS = 436;
 
     public static boolean inMine(ClientContext ctx) {
-        int distanceToMine = ctx.movement.distance(mineTile);
-        return distanceToMine != -1 && distanceToMine < 15;
+        int distanceToMine = ctx.movement.distance(MINE_TILE);
+        return distanceToMine != -1 && distanceToMine < 10;
     }
 
     public static boolean inBank(ClientContext ctx) {
-        int distanceToBank = ctx.movement.distance(bankTile);
+        int distanceToBank = ctx.movement.distance(BANK_TILE);
         return distanceToBank != -1 && distanceToBank < 5;
-    }
-
-    public static  Tile[] getPath() {
-        return tilePath;
-    }
-
-    public static int[] getCopperIds() {
-        return copperIds;
-    }
-
-    public static int[] getTinIds() {
-        return tinIds;
-    }
-
-    public static int getCopperInvId() {
-        return copperInvId;
-    }
-
-    public static int getTinInvId() {
-        return tinInvId;
     }
 }

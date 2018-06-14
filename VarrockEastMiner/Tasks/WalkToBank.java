@@ -22,7 +22,7 @@ public class WalkToBank extends Task<ClientContext> {
 
     @Override
     public void execute() {
-       ctx.movement.newTilePath(Constants.getPath()).traverse();
+       ctx.movement.newTilePath(Constants.TILE_PATH).traverse();
     }
 
     @Override

@@ -22,7 +22,7 @@ public class WalkToMine extends Task<ClientContext> {
 
     @Override
     public void execute() {
-        ctx.movement.newTilePath(Constants.getPath()).reverse().traverse();
+        ctx.movement.newTilePath(Constants.TILE_PATH).reverse().traverse();
     }
 
     @Override

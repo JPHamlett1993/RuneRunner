@@ -13,12 +13,12 @@ public class WalkToSmelter extends Task<ClientContext> {
     public boolean activate() {
         return ctx.inventory.select().count() == 28 &&
                 !ctx.players.local().inMotion() &&
-                ctx.movement.distance(Constants.getFurnaceTile()) > 5;
+                !Constants.inSmelter(ctx);
     }
 
     @Override
     public void execute() {
-        ctx.movement.newTilePath(Constants.getTilePath()).traverse();
+        ctx.movement.newTilePath(Constants.TILE_PATH).traverse();
     }
 
     @Override

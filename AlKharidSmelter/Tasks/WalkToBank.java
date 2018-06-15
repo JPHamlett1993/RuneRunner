@@ -11,14 +11,14 @@ public class WalkToBank extends Task<ClientContext> {
 
     @Override
     public boolean activate() {
-        return ctx.inventory.select().id(Constants.getTinId()).count() == 0 &&
+        return !Constants.hasOres(ctx) &&
                 !ctx.players.local().inMotion() &&
-                ctx.movement.distance(Constants.getBankTile()) > 5;
+                !Constants.inBank(ctx);
     }
 
     @Override
     public void execute() {
-        ctx.movement.newTilePath(Constants.getTilePath()).reverse().traverse();
+        ctx.movement.newTilePath(Constants.TILE_PATH).reverse().traverse();
     }
 
     @Override

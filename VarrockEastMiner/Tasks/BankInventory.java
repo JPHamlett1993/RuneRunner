@@ -26,7 +26,7 @@ public class BankInventory extends Task<ClientContext> {
             public Boolean call() throws Exception {
                 return ctx.bank.opened();
             }
-        }, 10, 500);
+        }, 50, 500);
         while (ctx.inventory.select().count() > 0) {
             ctx.bank.depositInventory();
             Condition.wait(new Callable<Boolean>() {

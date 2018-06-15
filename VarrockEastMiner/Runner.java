@@ -16,7 +16,7 @@ public class Runner extends PollingScript<ClientContext> implements PaintListene
 
     private List<Task> taskList = new ArrayList<Task>();
     private String state = "None";
-    StartGui gui = new StartGui();
+    SettingsGui gui = new SettingsGui();
     public static Bar BARS_TO_MINE;
 
     @Override

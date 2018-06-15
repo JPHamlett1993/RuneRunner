@@ -16,10 +16,13 @@ public class Runner extends PollingScript<ClientContext> implements PaintListene
 
     private List<Task> taskList = new ArrayList<Task>();
     private String state = "None";
+    public static Bar BAR_TO_SMELT;
+    SettingsGui gui = new SettingsGui();
 
     @Override
     public void start() {
-        taskList.addAll(Arrays.asList(new BankInventory(ctx), new OpenBank(ctx), new WalkToBank(ctx), new WalkToSmelter(ctx), new Smelt(ctx)));
+        gui.setVisible(true);
+        taskList.addAll(Arrays.asList(new BankInventory(ctx), new WalkToBank(ctx), new WalkToSmelter(ctx), new Smelt(ctx)));
     }
 
     @Override
@@ -29,6 +32,7 @@ public class Runner extends PollingScript<ClientContext> implements PaintListene
 
     @Override
     public void poll() {
+        while (BAR_TO_SMELT == null);
         for (Task task: taskList) {
             if (task.activate()) {
                 state = task.getName();

@@ -40,8 +40,8 @@ public class Constants {
 
     public static int BRONZE_COMPONENT_ID = 14;
     public static int IRON_COMPONENT_ID = 15;
-    public static int SILVER_COMPONENT_ID = 16;
-    public static int STEEL_COMPONENT_ID = 17;
+    public static int SILVER_COMPONENT_ID = 17;
+    public static int STEEL_COMPONENT_ID = 18;
     public static int GOLD_COMPONENT_ID = 18;
     public static int MITHRIL_COMPONENT_ID = 19;
     public static int ADAMANT_COMPONENT_ID = 20;
@@ -50,7 +50,7 @@ public class Constants {
     public static Ore[] BRONZE_ORES = {new Ore(COPPER_ID, 14), new Ore(TIN_ID, 14)};
     public static Ore[] IRON_ORES = {new Ore(IRON_ID, 28)};
     public static Ore[] SILVER_ORES = {new Ore(Constants.SILVER_ID, 28)};
-    public static Ore[] STEEL_ORES = {new Ore(Constants.IRON_ID, 8), new Ore(Constants.COAL_ID, 16)};
+    public static Ore[] STEEL_ORES = {new Ore(Constants.IRON_ID, 9), new Ore(Constants.COAL_ID, 18)};
     public static Ore[] GOLD_ORES = {new Ore(Constants.GOLD_ID, 28)};
     public static Ore[] MITHRIL_ORES = {new Ore(Constants.MITHRIL_ID, 4), new Ore(Constants.COAL_ID, 18)};
     public static Ore[] ADAMANT_ORES = {new Ore(Constants.ADAMANT_ID, 3), new Ore(Constants.COAL_ID, 18)};
@@ -67,7 +67,7 @@ public class Constants {
 
     public static boolean hasOres(ClientContext ctx) {
         Ore[] ores = new Ore[0];
-        switch (Runner.BAR_TO_SMELT) {
+        switch (JPSmelters.BAR_TO_SMELT) {
             case BRONZE: {
                 ores = BRONZE_ORES;
                 break;
@@ -112,7 +112,7 @@ public class Constants {
     
     public static boolean invFullOfBars(ClientContext ctx) {
         int barId = 0;
-        switch (Runner.BAR_TO_SMELT) {
+        switch (JPSmelters.BAR_TO_SMELT) {
             case BRONZE: {
                 barId = BRONZE_BAR_ID;
                 break;

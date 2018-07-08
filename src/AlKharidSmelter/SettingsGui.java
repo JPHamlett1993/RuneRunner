@@ -43,32 +43,32 @@ public class SettingsGui extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (bronzeButton.isSelected()) {
-                    Runner.BAR_TO_SMELT = Bar.BRONZE;
+                    JPSmelters.BAR_TO_SMELT = Bar.BRONZE;
                 }
                 if (ironButton.isSelected()) {
-                    Runner.BAR_TO_SMELT = Bar.IRON;
+                    JPSmelters.BAR_TO_SMELT = Bar.IRON;
                 }
                 if (silverButton.isSelected()) {
-                    Runner.BAR_TO_SMELT = Bar.SILVER;
+                    JPSmelters.BAR_TO_SMELT = Bar.SILVER;
                 }
                 if (steelButton.isSelected()) {
-                    Runner.BAR_TO_SMELT = Bar.STEEL;
+                    JPSmelters.BAR_TO_SMELT = Bar.STEEL;
                 }
                 if (goldButton.isSelected()) {
-                    Runner.BAR_TO_SMELT = Bar.GOLD;
+                    JPSmelters.BAR_TO_SMELT = Bar.GOLD;
                 }
                 if (mithrilButton.isSelected()) {
-                    Runner.BAR_TO_SMELT = Bar.MITHRIL;
+                    JPSmelters.BAR_TO_SMELT = Bar.MITHRIL;
                 }
                 if (adamantButton.isSelected()) {
-                    Runner.BAR_TO_SMELT = Bar.ADAMANT;
+                    JPSmelters.BAR_TO_SMELT = Bar.ADAMANT;
                 }
                 if (runeButton.isSelected()) {
-                    Runner.BAR_TO_SMELT = Bar.RUNE;
+                    JPSmelters.BAR_TO_SMELT = Bar.RUNE;
                 }
             }
         });
-        mainFrame.setSize(250, 250);
+        mainFrame.setSize(250, 500);
         mainFrame.add(label);
         mainFrame.add(buttonFrame);
         mainFrame.add(startButton);

@@ -1,13 +1,10 @@
 package AlKharidSmelter.Tasks;
 
 import AlKharidSmelter.Constants;
-import AlKharidSmelter.Runner;
-import org.powerbot.Con;
+import AlKharidSmelter.JPSmelters;
 import org.powerbot.script.Condition;
 import org.powerbot.script.rt4.ClientContext;
 import org.powerbot.script.rt4.GameObject;
-import org.powerbot.script.rt4.Widget;
-import org.powerbot.script.rt4.Widgets;
 
 import java.util.concurrent.Callable;
 
@@ -33,7 +30,7 @@ public class Smelt extends Task<ClientContext> {
         }
         furnace.interact("Smelt");
         int componentId = 0;
-        switch (Runner.BAR_TO_SMELT) {
+        switch (JPSmelters.BAR_TO_SMELT) {
             case BRONZE: {
                 componentId = Constants.BRONZE_COMPONENT_ID;
                 break;

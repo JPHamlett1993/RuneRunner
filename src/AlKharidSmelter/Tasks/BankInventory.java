@@ -2,8 +2,7 @@ package AlKharidSmelter.Tasks;
 
 import AlKharidSmelter.Ore;
 import AlKharidSmelter.Constants;
-import AlKharidSmelter.Runner;
-import org.powerbot.Con;
+import AlKharidSmelter.JPSmelters;
 import org.powerbot.script.Condition;
 import org.powerbot.script.rt4.ClientContext;
 
@@ -24,35 +23,30 @@ public class BankInventory extends Task<ClientContext> {
 
     private void getOreFromBank(Ore[] ores) {
         for (final Ore ore: ores) {
-            if (ctx.inventory.select().id(ore.getId()).count() == ore.getAmount()) {
-                continue;
+            while (ore.amount - ctx.inventory.select().id(ore.id).count() > 0) {
+               ctx.bank.withdraw(ore.id, ore.amount - ctx.inventory.select().id(ore.id).count());
+               Condition.sleep(450);
             }
-            while(ctx.inventory.select().id(ore.getId()).count() == 0) {
-                ctx.bank.withdraw(ore.getId(), ore.getAmount());
-            }
-
         }
     }
     @Override
     public void execute() {
-        ctx.bank.open();
-        Condition.wait(new Callable<Boolean>() {
-            @Override
-            public Boolean call() throws Exception {
-                return ctx.bank.opened();
-            }
-        }, 10, 500);
-        while (ctx.inventory.select().count() > 0) {
-            ctx.bank.depositInventory();
+        JPSmelters.numberSmelted += ctx.inventory.select().count();
+        while (!ctx.bank.opened()) {
+            ctx.bank.open();
             Condition.wait(new Callable<Boolean>() {
                 @Override
                 public Boolean call() throws Exception {
-                    return ctx.inventory.select().count() == 0;
+                    return ctx.bank.opened();
                 }
-            }, 100, 10);
+            }, 250, 500);
+        }
+        while (ctx.inventory.select().count() > 0) {
+            ctx.bank.depositInventory();
+            Condition.sleep(350);
         }
         Ore[] ores = {};
-        switch (Runner.BAR_TO_SMELT) {
+        switch (JPSmelters.BAR_TO_SMELT) {
             case BRONZE: {
                 ores = Constants.BRONZE_ORES;
                 break;

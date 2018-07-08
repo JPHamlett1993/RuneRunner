@@ -11,7 +11,7 @@ public class WalkToSmelter extends Task<ClientContext> {
 
     @Override
     public boolean activate() {
-        return ctx.inventory.select().count() == 28 &&
+        return Constants.hasOres(ctx) &&
                 !ctx.players.local().inMotion() &&
                 !Constants.inSmelter(ctx);
     }

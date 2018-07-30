@@ -15,7 +15,7 @@ public class OpenSmithingMenu extends Task<ClientContext> {
     @Override
     public boolean activate() {
         return ctx.movement.distance(Constants.getSmitherTile()) < 5
-                && ctx.inventory.select().id(Constants.getBronzeBarId()).count() > 0;
+                && !Constants.isSmithing(ctx) && ctx.inventory.select().id(Constants.getBronzeBarId()).count() > 0;
     }
 
     @Override
